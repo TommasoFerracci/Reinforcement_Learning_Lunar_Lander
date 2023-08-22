@@ -15,7 +15,7 @@ $$
 \end{align*}
 $$
 
-This allows for great performance with just a few hundreds episodes:
+This allows for great performance with just a few hundred episodes:
 <p align="middle">
   <img src="images/video.gif" width="50%"/>
 </p>
