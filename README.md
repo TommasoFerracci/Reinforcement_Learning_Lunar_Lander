@@ -7,10 +7,10 @@ $$
 & Q_t \leftarrow \text{action-value network at timestep t (current action-value network)}\\
 & \text{Initialize } Q_{t+1}^1 \leftarrow Q_t\\
 & \text{For } i \text{ in } [1, ..., N] \text{ (i.e. N} \text{  replay steps)}:\\
-& \hspace{1cm} s, a, r, t, s'
+& \quad s, a, r, t, s'
 \leftarrow \text{Sample batch of experiences from experience replay buffer} \\
-& \hspace{1cm} \text{Do expected SARSA update with } Q_t: Q_{t+1}^{i+1}(s, a) \leftarrow Q_{t+1}^{i}(s, a) + \alpha \cdot \left[r + \gamma \left(\sum_{b} \pi(b | s') Q_t(s', b)\right) - Q_{t+1}^{i}(s, a)\right]\\
-& \hspace{1.5cm} \text{ making sure to add the } \gamma \left(\sum_{b} \pi(b | s') Q_t(s', b)\right) \text{ for non-terminal transitions only.} \\
+& \quad \text{Do expected SARSA update with } Q_t: Q_{t+1}^{i+1}(s, a) \leftarrow Q_{t+1}^{i}(s, a) + \alpha \cdot \left[r + \gamma \left(\sum_{b} \pi(b | s') Q_t(s', b)\right) - Q_{t+1}^{i}(s, a)\right]\\
+& \quad \quad \text{ making sure to add the } \gamma \left(\sum_{b} \pi(b | s') Q_t(s', b)\right) \text{ for non-terminal transitions only.} \\
 & \text{After N replay steps, we set } Q_{t+1}^{N} \text{ as } Q_{t+1} \text{ and have a new } Q_{t+1} \text{ for time step } t + 1 \text{ that we will fix in the next set of updates. }
 \end{align*}
 $$
